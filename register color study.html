@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>저항 컬러 코드</title>
+  <meta id="metaDesc" name="description" content="저항 색띠를 읽고 값을 고르는 연습 페이지입니다. 컬러 표와 4지선다 100문제가 들어 있습니다.">
+  <meta id="themeColor" name="theme-color" content="#f5f6f8">
+  <meta name="google" content="notranslate">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f4ea8'/%3E%3Cpath d='M5 16h6.5M20.5 16H27' stroke='white' stroke-width='2' stroke-linecap='round'/%3E%3Crect x='9' y='9' width='14' height='14' rx='7' fill='none' stroke='white' stroke-width='1.6'/%3E%3Cpath d='M13 9.5v13M16 9.5v13M19 9.5v13' stroke='white' stroke-width='1.6'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link id="font-link" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap">
+  <script>
+    (function () {
+      var fonts = {
+        ko: "family=Noto+Sans+KR:wght@400;500;700&family=Noto+Sans:wght@400;500;700",
+        en: "family=Noto+Sans:wght@400;500;700",
+        ja: "family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans:wght@400;500;700",
+        zh: "family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans:wght@400;500;700"
+      };
+      function read(key) {
+        try { return localStorage.getItem(key); } catch (e) { return null; }
+      }
+      var lang = read("resistor-lang");
+      if (lang !== "ko" && lang !== "en" && lang !== "zh" && lang !== "ja") lang = "ko";
+      var theme = read("resistor-theme");
+      if (theme !== "light" && theme !== "dark") {
+        theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.lang = lang === "zh" ? "zh-Hans" : lang;
+      document.documentElement.setAttribute("data-theme", theme);
+      var link = document.getElementById("font-link");
+      if (link) link.setAttribute("href", "https://fonts.googleapis.com/css2?" + fonts[lang] + "&display=swap");
+      var themeMeta = document.getElementById("themeColor");
+      if (themeMeta) themeMeta.setAttribute("content", theme === "dark" ? "#0e1116" : "#f5f6f8");
+      window.__resistorBoot = { lang: lang, theme: theme, fonts: fonts };
+    })();
+  </script>
+  <style>
+    :root, [data-theme="light"] {
+      color-scheme: light;
+      --bg: #f5f6f8;
+      --surface: #ffffff;
+      --surface-2: #f0f2f5;
+      --text: #1b1f24;
+      --muted: #52606d;
+      --border: #e2e5ea;
+      --border-strong: #c5cbd3;
+      --accent: #0f4ea8;
+      --accent-hover: #0c408a;
+      --accent-text: #ffffff;
+      --success: #086b38;
+      --success-bg: #e7f6ee;
+      --success-border: #8fceb0;
+      --error: #b42318;
+      --error-bg: #fdeceb;
+      --error-border: #f0b4ae;
+      --stage: #f3efe4;
+      --stage-border: #e4dcc8;
+      --key-ink: #ffffff;
+    }
+    [data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #0e1116;
+      --surface: #171c23;
+      --surface-2: #212833;
+      --text: #e7ecf2;
+      --muted: #b3bec9;
+      --border: #2d3642;
+      --border-strong: #445062;
+      --accent: #9dc1ff;
+      --accent-hover: #b7d0ff;
+      --accent-text: #0e1116;
+      --success: #8ed7ad;
+      --success-bg: #143024;
+      --success-border: #2f6b49;
+      --error: #ffb4ab;
+      --error-bg: #3a1d1c;
+      --error-border: #8a403c;
+      --stage: #2a241b;
+      --stage-border: #433b2e;
+      --key-ink: #101418;
+    }
+
+    html { scroll-behavior: smooth; }
+    html, body { max-width: 100%; }
+    html[lang="en"] { font-family: "Noto Sans", "Segoe UI", sans-serif; }
+    html[lang="ko"] { font-family: "Noto Sans KR", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif; }
+    html[lang="ja"] { font-family: "Noto Sans JP", "Yu Gothic UI", "Yu Gothic", Meiryo, sans-serif; }
+    html[lang="zh-Hans"] { font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 1rem;
+      line-height: 1.6;
+      overflow-wrap: break-word;
+    }
+    html[lang="ko"] body { word-break: keep-all; }
+    html[lang="ja"] body { line-height: 1.75; line-break: strict; }
+    html[lang="zh-Hans"] body { line-height: 1.75; }
+    p, h1, h2, h3 { overflow-wrap: break-word; }
+    h1, h2, h3, p, figure { margin: 0; }
+    button, select { font: inherit; color: inherit; }
+    button { cursor: pointer; }
+    button:disabled { cursor: default; }
+    :focus { outline: none; }
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+    ::selection { background: #d6e4fb; color: inherit; }
+    [data-theme="dark"] ::selection { background: #27406e; }
+
+    html:not(.is-ready) body > :not(noscript) { visibility: hidden; }
+
+    .skip {
+      position: absolute;
+      left: 0.75rem;
+      top: -3rem;
+      z-index: 40;
+      padding: 0.5rem 0.75rem;
+      border-radius: 8px;
+      background: var(--accent);
+      color: var(--accent-text);
+      text-decoration: none;
+    }
+    .skip:focus { top: 0.75rem; }
+
+    .wrap { width: min(70rem, calc(100% - 2rem)); margin: 0 auto; }
+    .page { padding-bottom: 3rem; }
+
+    .top {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem 1rem;
+      min-height: 3.75rem;
+      padding: 0.65rem 0;
+      flex-wrap: wrap;
+    }
+    .brand { display: flex; align-items: center; gap: 0.65rem; min-width: 0; }
+    .logo { width: 1.75rem; height: 1.75rem; flex: 0 0 auto; }
+    h1 { font-size: 1.25rem; line-height: 1.45; font-weight: 700; min-width: 0; }
+    .tools { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+    .lang select {
+      min-height: 2.75rem;
+      max-width: 100%;
+      margin: 0;
+      padding: 0.45rem 2.2rem 0.45rem 0.8rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background-color: var(--surface);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='M4 6.2 8 10l4-3.8' fill='none' stroke='%2352606d' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.7rem center;
+      background-size: 1rem;
+      line-height: 1.4;
+      font-size: 1rem;
+      cursor: pointer;
+      appearance: none;
+    }
+    [data-theme="dark"] .lang select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='M4 6.2 8 10l4-3.8' fill='none' stroke='%23b3bec9' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    }
+    .icon-btn {
+      width: 2.75rem;
+      height: 2.75rem;
+      display: grid;
+      place-items: center;
+      padding: 0;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+    }
+    .icon-btn svg { width: 1.15rem; height: 1.15rem; display: block; }
+    .icon-btn .sun { display: none; }
+    [data-theme="dark"] .icon-btn .moon { display: none; }
+    [data-theme="dark"] .icon-btn .sun { display: block; }
+    .lang select:hover, .icon-btn:hover { border-color: var(--border-strong); }
+
+    .lead {
+      max-width: 42em;
+      margin: 1rem 0 0.85rem;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .layout { display: grid; gap: 1rem; align-items: start; }
+    main, .side, .card, .table-wrap { min-width: 0; }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+    .card-head, .quiz-body { padding: 1.15rem 1.25rem 0; }
+    .quiz-body { padding-bottom: 1.25rem; }
+    h2 { font-size: 1.125rem; line-height: 1.4; font-weight: 700; }
+    .card-head p, .chart-copy p { margin-top: 0.25rem; color: var(--muted); font-size: 0.9375rem; line-height: 1.65; }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.9rem;
+      padding: 0 1.25rem 0.9rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .group { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .actions button {
+      min-height: 2.75rem;
+      padding: 0.5rem 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+      line-height: 1.45;
+      text-align: center;
+    }
+    .actions button:hover:not(:disabled) { background: var(--surface-2); border-color: var(--border-strong); }
+    .actions button:disabled { opacity: 0.45; }
+    .actions button.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--accent-text);
+      font-weight: 500;
+    }
+    .actions button.primary:hover:not(:disabled) {
+      background: var(--accent-hover);
+      border-color: var(--accent-hover);
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.25rem 1rem;
+      color: var(--muted);
+      font-size: 0.9375rem;
+      line-height: 1.5;
+    }
+    .progress {
+      height: 0.3rem;
+      margin-top: 0.55rem;
+      border-radius: 999px;
+      background: var(--border);
+      overflow: hidden;
+    }
+    .progress span {
+      display: block;
+      height: 100%;
+      width: 0;
+      background: var(--accent);
+      border-radius: inherit;
+    }
+    .prompt {
+      margin-top: 0.75rem;
+      font-size: 1.125rem;
+      font-weight: 700;
+      line-height: 1.55;
+    }
+    .stage {
+      margin-top: 0.7rem;
+      padding: 0.45rem 0.7rem 0.6rem;
+      border: 1px solid var(--stage-border);
+      border-radius: 12px;
+      background: var(--stage);
+    }
+    .resistor-wrap { width: min(100%, 28rem); margin: 0 auto; }
+    .resistor-svg { width: 100%; height: auto; display: block; }
+    .hint {
+      margin-top: 0.35rem;
+      color: var(--muted);
+      font-size: 0.9375rem;
+      line-height: 1.65;
+    }
+    .options { display: grid; gap: 0.4rem; margin-top: 0.7rem; }
+    .option {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      width: 100%;
+      min-height: 2.75rem;
+      padding: 0.55rem 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+      text-align: start;
+      line-height: 1.5;
+    }
+    .option:hover:not(:disabled) { background: var(--surface-2); border-color: var(--border-strong); }
+    .option .key {
+      width: 1.75rem;
+      height: 1.75rem;
+      flex: 0 0 1.75rem;
+      margin-top: 0.05rem;
+      display: grid;
+      place-items: center;
+      border-radius: 6px;
+      background: var(--surface-2);
+      color: var(--muted);
+      font-size: 0.8125rem;
+      font-weight: 700;
+    }
+    .option .label { flex: 1; min-width: 0; overflow-wrap: break-word; }
+    .option.correct { background: var(--success-bg); border-color: var(--success-border); }
+    .option.wrong { background: var(--error-bg); border-color: var(--error-border); }
+    .option.correct .key, .option.wrong .key { color: var(--key-ink); }
+    .option.correct .key { background: var(--success); }
+    .option.wrong .key { background: var(--error); }
+    [data-theme="light"] .option.correct .key,
+    [data-theme="light"] .option.wrong .key { color: #ffffff; }
+
+    .feedback {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.35rem 0.6rem;
+      min-height: 1.5em;
+      margin-top: 0.65rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .feedback .rest { flex: 1 1 12rem; min-width: 0; color: var(--text); }
+    .feedback.is-ok strong { color: var(--success); }
+    .feedback.is-bad strong { color: var(--error); }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.7rem;
+      padding-top: 0.7rem;
+      border-top: 1px solid var(--border);
+    }
+    .summary span { display: block; color: var(--muted); font-size: 0.875rem; line-height: 1.45; }
+    .summary strong {
+      display: block;
+      margin-top: 0.15rem;
+      font-size: 1.125rem;
+      font-weight: 700;
+      line-height: 1.3;
+      font-variant-numeric: tabular-nums;
+    }
+    .done { margin-top: 0.75rem; color: var(--success); font-size: 0.9375rem; line-height: 1.55; }
+    .done[hidden] { display: none; }
+
+    .chart-toggle {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 1.15rem 1.25rem;
+      list-style: none;
+      cursor: pointer;
+      text-align: start;
+    }
+    .chart-toggle::-webkit-details-marker { display: none; }
+    .chart-copy { flex: 1; min-width: 0; }
+    .chevron { width: 1.25rem; height: 1.25rem; flex: 0 0 auto; margin-top: 0.15rem; color: var(--muted); transition: transform 150ms ease; }
+    details[open] .chevron { transform: rotate(180deg); }
+    .chart-body { padding: 0 1.25rem 1.25rem; }
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      max-width: 100%;
+    }
+    table { width: 100%; border-collapse: collapse; }
+    th, td {
+      padding: 0.65rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+      text-align: start;
+      vertical-align: middle;
+      font-size: 0.9375rem;
+      line-height: 1.45;
+    }
+    th { color: var(--muted); font-weight: 500; background: var(--surface-2); white-space: normal; }
+    td { white-space: nowrap; font-variant-numeric: tabular-nums; }
+    tr:last-child td { border-bottom: 0; }
+    .swatch-row { display: flex; align-items: center; gap: 0.5rem; }
+    .swatch {
+      width: 0.9rem;
+      height: 0.9rem;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.22);
+    }
+    .notes { display: grid; gap: 0.65rem; margin-top: 0.9rem; }
+    .notes p {
+      padding-left: 0.75rem;
+      border-left: 2px solid var(--border);
+      color: var(--muted);
+      font-size: 0.9375rem;
+      line-height: 1.65;
+    }
+    .footer { margin-top: 1.25rem; color: var(--muted); font-size: 0.9375rem; line-height: 1.65; }
+    .noscript {
+      margin: 1.25rem 0;
+      padding: 0.9rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--surface);
+      line-height: 1.65;
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (min-width: 72rem) {
+      .layout { grid-template-columns: minmax(0, 1fr) 36rem; gap: 1.25rem; }
+      .side {
+        position: sticky;
+        top: 5rem;
+        max-height: calc(100vh - 6.25rem);
+        max-height: calc(100dvh - 6.25rem);
+        overflow: auto;
+      }
+    }
+    @media (max-width: 40rem) {
+      .wrap { width: min(100% - 1.5rem, 70rem); }
+      .card-head, .quiz-body, .chart-toggle { padding-left: 1rem; padding-right: 1rem; }
+      .actions, .chart-body { padding-left: 1rem; padding-right: 1rem; }
+      .actions { align-items: stretch; }
+      .group { width: 100%; }
+      .group button {
+        flex: 1 1 calc(50% - 0.25rem);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    @media (max-width: 22rem) {
+      .summary { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        transition: none !important;
+        animation: none !important;
+      }
+    }
+    @media (forced-colors: active) {
+      .swatch, .resistor-svg { forced-color-adjust: none; }
+    }
+    @media print {
+      .top { position: static; }
+      .skip, .tools, .actions { display: none !important; }
+      .side { position: static; max-height: none; overflow: visible; }
+      body { background: #fff; }
+    }
+    #quiz { scroll-margin-top: 5.5rem; }
+  </style>
+</head>
+<body>
+  <noscript>
+    <div class="wrap">
+      <p class="noscript">이 페이지는 JavaScript가 필요합니다. JavaScript is required. 本页面需要 JavaScript。このページには JavaScript が必要です。</p>
+    </div>
+  </noscript>
+
+  <a class="skip" id="skipLink" href="#quiz">문제로 이동</a>
+  <header class="top">
+    <div class="wrap bar">
+      <div class="brand">
+        <svg class="logo" viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M3 16h6.2M22.8 16H29" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+          <rect x="8" y="8" width="16" height="16" rx="8" fill="none" stroke="currentColor" stroke-width="1.7"/>
+          <path d="M13 8.2v15.6M16 8.2v15.6M19 8.2v15.6" stroke="currentColor" stroke-width="1.7"/>
+        </svg>
+        <h1 id="brandName">저항 컬러 코드</h1>
+      </div>
+      <div class="tools">
+        <label class="lang">
+          <span class="sr-only" id="langLabel">언어</span>
+          <select id="langSelect" aria-labelledby="langLabel">
+            <option value="ko" lang="ko">한국어</option>
+            <option value="en" lang="en">English</option>
+            <option value="zh" lang="zh-Hans">中文</option>
+            <option value="ja" lang="ja">日本語</option>
+          </select>
+        </label>
+        <button class="icon-btn" id="themeBtn" type="button">
+          <svg class="icon moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14.5 3.2a8.2 8.2 0 1 0 6.3 13.1A7 7 0 0 1 14.5 3.2z"/></svg>
+          <svg class="icon sun" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="3.4" fill="currentColor"/>
+            <g stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+              <path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5 5l1.6 1.6M17.4 17.4 19 19M19 5l-1.6 1.6M6.6 17.4 5 19"/>
+            </g>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap page">
+    <p class="lead" id="pageLead"></p>
+    <div class="layout">
+      <main class="card" id="quiz" aria-labelledby="quizTitle">
+        <div class="card-head">
+          <h2 id="quizTitle"></h2>
+          <p id="quizDesc"></p>
+        </div>
+        <div class="actions">
+          <div class="group">
+            <button type="button" id="prevBtn"></button>
+            <button type="button" id="nextBtn"></button>
+          </div>
+          <div class="group">
+            <button type="button" id="retryBtn"></button>
+            <button type="button" id="newBtn" class="primary"></button>
+          </div>
+        </div>
+        <div class="quiz-body">
+          <p class="meta">
+            <span id="questionIndex"></span>
+            <span id="questionType"></span>
+          </p>
+          <div class="progress" id="progress" role="progressbar" aria-valuemin="1" aria-valuemax="100" aria-valuenow="1">
+            <span id="progressBar"></span>
+          </div>
+          <h3 class="prompt" id="questionPrompt" aria-live="polite"></h3>
+          <figure class="stage">
+            <div class="resistor-wrap" id="resistorWrap"></div>
+            <figcaption class="hint" id="questionHint"></figcaption>
+          </figure>
+          <div class="options" id="options"></div>
+          <p class="feedback" id="feedback" aria-live="polite"></p>
+          <div class="summary">
+            <p><span id="scoreLabel"></span><strong id="scoreNow">0 / 0</strong></p>
+            <p><span id="accLabel"></span><strong id="accuracyNow">0%</strong></p>
+            <p><span id="leftLabel"></span><strong id="remainingNow">100</strong></p>
+          </div>
+          <p class="done" id="doneNote" hidden></p>
+        </div>
+      </main>
+
+      <aside class="side" aria-labelledby="chartTitle">
+        <details class="card" open>
+          <summary class="chart-toggle">
+            <span class="chart-copy">
+              <h2 id="chartTitle"></h2>
+              <p id="chartDesc"></p>
+            </span>
+            <svg class="chevron" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </summary>
+          <div class="chart-body">
+            <div class="table-wrap" tabindex="0" role="region" aria-labelledby="chartTitle">
+              <table>
+                <thead>
+                  <tr>
+                    <th id="colColor" scope="col"></th>
+                    <th id="colDigit" scope="col"></th>
+                    <th id="colMul" scope="col"></th>
+                    <th id="colTol" scope="col"></th>
+                    <th id="colTemp" scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody id="colorTableBody"></tbody>
+              </table>
+            </div>
+            <div class="notes">
+              <p id="tip4"></p>
+              <p id="tip6"></p>
+            </div>
+          </div>
+        </details>
+      </aside>
+    </div>
+    <p class="footer" id="footerNote"></p>
+  </div>
+
+  <script>
+    const boot = window.__resistorBoot || {
+      lang: "ko",
+      theme: "light",
+      fonts: {
+        ko: "family=Noto+Sans+KR:wght@400;500;700&family=Noto+Sans:wght@400;500;700",
+        en: "family=Noto+Sans:wght@400;500;700",
+        ja: "family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans:wght@400;500;700",
+        zh: "family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans:wght@400;500;700"
+      }
+    };
+
+    const resistorData = [
+      { key: "black", css: "#111111", digit: "0", multiplierText: "×1", tolerance: null, tempCoeff: "250 ppm/K" },
+      { key: "brown", css: "#8B4513", digit: "1", multiplierText: "×10", tolerance: "±1%", tempCoeff: "100 ppm/K" },
+      { key: "red", css: "#D62828", digit: "2", multiplierText: "×100", tolerance: "±2%", tempCoeff: "50 ppm/K" },
+      { key: "orange", css: "#FF8C00", digit: "3", multiplierText: "×1k", tolerance: null, tempCoeff: "15 ppm/K" },
+      { key: "yellow", css: "#FFD166", digit: "4", multiplierText: "×10k", tolerance: null, tempCoeff: "25 ppm/K" },
+      { key: "green", css: "#2A9D8F", digit: "5", multiplierText: "×100k", tolerance: "±0.5%", tempCoeff: "20 ppm/K" },
+      { key: "blue", css: "#4F86F7", digit: "6", multiplierText: "×1M", tolerance: "±0.25%", tempCoeff: "10 ppm/K" },
+      { key: "violet", css: "#7B2CBF", digit: "7", multiplierText: "×10M", tolerance: "±0.1%", tempCoeff: "5 ppm/K" },
+      { key: "gray", css: "#7A7A7A", digit: "8", multiplierText: "×100M", tolerance: "±0.05%", tempCoeff: "1 ppm/K" },
+      { key: "white", css: "#F6F7FB", digit: "9", multiplierText: "×1G", tolerance: null, tempCoeff: null },
+      { key: "gold", css: "#D4AF37", digit: null, multiplierText: "×0.1", tolerance: "±5%", tempCoeff: null },
+      { key: "silver", css: "#C0C7D1", digit: null, multiplierText: "×0.01", tolerance: "±10%", tempCoeff: null }
+    ];
+
+    const digitBands = resistorData.filter((item) => item.digit !== null);
+    const multiplierBands = resistorData.filter((item) => item.multiplierText);
+    const toleranceBands = resistorData.filter((item) => item.tolerance);
+    const tempBands = resistorData.filter((item) => item.tempCoeff);
+
+    const I18N = {
+      ko: {
+        brand: "저항 컬러 코드",
+        lead: "색띠를 보고 값을 고르는 연습입니다. 100문제를 풀 수 있고, 표에서 색·수치·승수·정밀도·온도계수를 확인할 수 있습니다.",
+        description: "저항 색띠를 읽고 값을 고르는 연습 페이지입니다. 컬러 표와 4지선다 100문제가 들어 있습니다.",
+        langLabel: "언어",
+        skip: "문제로 이동",
+        quizTitle: "문제",
+        quizDesc: "고르면 바로 맞았는지 표시됩니다.",
+        prev: "이전",
+        next: "다음",
+        retry: "다시 풀기",
+        retryHelp: "같은 문제를 처음부터 다시 풉니다",
+        newSet: "새 문제",
+        newHelp: "문제와 보기를 새로 뽑습니다",
+        score: "점수",
+        accuracy: "정답률",
+        remaining: "남은 문제",
+        done: "모든 문제를 풀었습니다.",
+        chartTitle: "색 코드 표",
+        chartDesc: "색, 수치, 승수, 정밀도, 온도계수입니다.",
+        colColor: "색",
+        colDigit: "수치",
+        colMul: "승수",
+        colTol: "정밀도",
+        colTemp: "온도계수",
+        colTempFull: "온도계수",
+        tip4: "4색띠는 보통 숫자, 숫자, 승수, 정밀도 순입니다. 5색띠는 숫자 세 개 다음에 승수, 그다음이 정밀도입니다.",
+        tip6: "6색띠는 마지막 띠가 온도계수(ppm/K)입니다.",
+        footer: "언어와 화면 모드만 이 브라우저에 저장됩니다. 점수는 새로고침하면 초기화됩니다.",
+        idle: "보기를 고르면 결과가 표시됩니다.",
+        correct: "맞았습니다.",
+        wrong: "틀렸습니다.",
+        answerRest: "정답은 {answer}입니다.",
+        themeToDark: "다크 모드로 바꾸기",
+        themeToLight: "라이트 모드로 바꾸기",
+        progressAria: "문제 {current} / {total}",
+        typeAria: "유형: {kind}",
+        index: "{current} / {total}",
+        prompt_digit: "{name} 띠의 수치는 무엇인가요?",
+        prompt_multiplier: "{name} 띠의 승수는 무엇인가요?",
+        prompt_tolerance: "{name} 띠의 정밀도는 무엇인가요?",
+        prompt_temp: "{name} 띠의 온도계수는 무엇인가요?",
+        prompt_sequence: "왼쪽부터 읽은 색띠 조합을 고르세요.",
+        hint_digit: "이 색띠 하나가 나타내는 숫자입니다.",
+        hint_multiplier: "승수는 저항값의 자릿수를 옮깁니다.",
+        hint_tolerance: "정밀도 띠는 보통 맨 오른쪽에 있습니다.",
+        hint_temp: "6색띠에서는 마지막 띠가 온도계수입니다.",
+        hint_sequence: "앞의 두 띠는 숫자, 세 번째는 승수, 마지막은 정밀도입니다.",
+        kind_digit: "숫자",
+        kind_multiplier: "승수",
+        kind_tolerance: "정밀도",
+        kind_temp: "온도계수",
+        kind_sequence: "색 조합",
+        colors: { black: "검정", brown: "갈색", red: "빨강", orange: "주황", yellow: "노랑", green: "초록", blue: "파랑", violet: "보라", gray: "회색", white: "흰색", gold: "금색", silver: "은색" }
+      },
+      en: {
+        brand: "Resistor color codes",
+        lead: "Practice reading the bands and choosing the value. There are 100 questions, and the chart lists color, digit, multiplier, tolerance, and temperature coefficient.",
+        description: "Practice reading resistor color bands. Includes a color chart and 100 multiple-choice questions.",
+        langLabel: "Language",
+        skip: "Skip to questions",
+        quizTitle: "Questions",
+        quizDesc: "Your choice is marked as soon as you answer.",
+        prev: "Previous",
+        next: "Next",
+        retry: "Try again",
+        retryHelp: "Reset this set and start from the first question",
+        newSet: "New set",
+        newHelp: "Draw a new set of questions",
+        score: "Score",
+        accuracy: "Accuracy",
+        remaining: "Remaining",
+        done: "All questions are answered.",
+        chartTitle: "Color chart",
+        chartDesc: "Color, digit, multiplier, tolerance, and temperature coefficient.",
+        colColor: "Color",
+        colDigit: "Digit",
+        colMul: "Multiplier",
+        colTol: "Tolerance",
+        colTemp: "Temp. coefficient",
+        colTempFull: "Temperature coefficient",
+        tip4: "A 4-band code is usually digit, digit, multiplier, tolerance. A 5-band code is three digits, then the multiplier, then tolerance.",
+        tip6: "On a 6-band resistor, the last band is the temperature coefficient in ppm/K.",
+        footer: "Only the language and theme are saved in this browser. Refreshing resets the score.",
+        idle: "Choose an option to see the result.",
+        correct: "Correct.",
+        wrong: "Incorrect.",
+        answerRest: "The answer is {answer}.",
+        themeToDark: "Switch to dark mode",
+        themeToLight: "Switch to light mode",
+        progressAria: "Question {current} of {total}",
+        typeAria: "Type: {kind}",
+        index: "{current} / {total}",
+        prompt_digit: "What is the digit for {name}?",
+        prompt_multiplier: "What is the multiplier for {name}?",
+        prompt_tolerance: "What is the tolerance for {name}?",
+        prompt_temp: "What is the temperature coefficient for {name}?",
+        prompt_sequence: "Choose the matching bands, from left to right.",
+        hint_digit: "The digit shown by this single band.",
+        hint_multiplier: "The multiplier moves the decimal place of the value.",
+        hint_tolerance: "The tolerance band is usually the last one on the right.",
+        hint_temp: "On a 6-band resistor, the last band is the temperature coefficient.",
+        hint_sequence: "The first two bands are digits, the third is the multiplier, and the last is tolerance.",
+        kind_digit: "Digit",
+        kind_multiplier: "Multiplier",
+        kind_tolerance: "Tolerance",
+        kind_temp: "Temp. coefficient",
+        kind_sequence: "Band order",
+        colors: { black: "Black", brown: "Brown", red: "Red", orange: "Orange", yellow: "Yellow", green: "Green", blue: "Blue", violet: "Violet", gray: "Gray", white: "White", gold: "Gold", silver: "Silver" }
+      },
+      zh: {
+        brand: "电阻色环",
+        lead: "这是读色环并选择数值的练习。可以做100道题，并在表中查看颜色、数字、倍率、误差和温度系数。",
+        description: "读电阻色环并选择数值的练习页，包含色环表和100道四选一题目。",
+        langLabel: "语言",
+        skip: "跳到题目",
+        quizTitle: "题目",
+        quizDesc: "选择后会立刻标出对错。",
+        prev: "上一题",
+        next: "下一题",
+        retry: "再做一次",
+        retryHelp: "用同一套题目从头再做",
+        newSet: "新题目",
+        newHelp: "重新抽取一套题目",
+        score: "得分",
+        accuracy: "正确率",
+        remaining: "剩余",
+        done: "全部题目都已完成。",
+        chartTitle: "色环表",
+        chartDesc: "颜色、数字、倍率、误差、温度系数。",
+        colColor: "颜色",
+        colDigit: "数字",
+        colMul: "倍率",
+        colTol: "误差",
+        colTemp: "温度系数",
+        colTempFull: "温度系数",
+        tip4: "四环一般按数字、数字、倍率、误差排列。五环是三位数字，然后是倍率，最后是误差。",
+        tip6: "六环电阻的最后一环是温度系数（ppm/K）。",
+        footer: "浏览器只保存语言和显示模式。刷新页面后，得分会重置。",
+        idle: "选择一个选项后会显示结果。",
+        correct: "回答正确。",
+        wrong: "回答错误。",
+        answerRest: "答案是 {answer}。",
+        themeToDark: "切换到深色模式",
+        themeToLight: "切换到浅色模式",
+        progressAria: "第 {current} 题，共 {total} 题",
+        typeAria: "题型：{kind}",
+        index: "{current} / {total}",
+        prompt_digit: "{name}色环表示的数字是多少？",
+        prompt_multiplier: "{name}色环表示的倍率是多少？",
+        prompt_tolerance: "{name}色环表示的误差是多少？",
+        prompt_temp: "{name}色环表示的温度系数是多少？",
+        prompt_sequence: "请选择从左到右对应的色环组合。",
+        hint_digit: "这一条色环所代表的数字。",
+        hint_multiplier: "倍率用来移动电阻值的小数位。",
+        hint_tolerance: "误差环通常在最右边。",
+        hint_temp: "六环电阻的最后一环是温度系数。",
+        hint_sequence: "前两环是数字，第三环是倍率，最后一环是误差。",
+        kind_digit: "数字",
+        kind_multiplier: "倍率",
+        kind_tolerance: "误差",
+        kind_temp: "温度系数",
+        kind_sequence: "色环组合",
+        colors: { black: "黑", brown: "棕", red: "红", orange: "橙", yellow: "黄", green: "绿", blue: "蓝", violet: "紫", gray: "灰", white: "白", gold: "金", silver: "银" }
+      },
+      ja: {
+        brand: "抵抗のカラーコード",
+        lead: "色帯を読んで値を選ぶ練習です。100問を解けて、表で色・数字・乗数・許容差・温度係数を確認できます。",
+        description: "抵抗の色帯を読んで値を選ぶ練習ページです。カラーコード表と4択100問があります。",
+        langLabel: "言語",
+        skip: "問題へ移動",
+        quizTitle: "問題",
+        quizDesc: "選ぶと、すぐに正解かどうかが表示されます。",
+        prev: "前へ",
+        next: "次へ",
+        retry: "もう一度",
+        retryHelp: "同じ問題のまま、最初からやり直します",
+        newSet: "新しい問題",
+        newHelp: "問題と選択肢を選び直します",
+        score: "得点",
+        accuracy: "正答率",
+        remaining: "残り",
+        done: "すべての問題を解き終わりました。",
+        chartTitle: "カラーコード表",
+        chartDesc: "色、数字、乗数、許容差、温度係数です。",
+        colColor: "色",
+        colDigit: "数字",
+        colMul: "乗数",
+        colTol: "許容差",
+        colTemp: "温度係数",
+        colTempFull: "温度係数",
+        tip4: "4本帯は、通常「数字、数字、乗数、許容差」の順です。5本帯は数字が3つ並び、その次が乗数、最後が許容差です。",
+        tip6: "6本帯では、最後の帯が温度係数（ppm/K）です。",
+        footer: "このブラウザに保存されるのは言語と表示モードだけです。再読み込みで得点はリセットされます。",
+        idle: "選択肢を押すと結果が表示されます。",
+        correct: "正解です。",
+        wrong: "不正解です。",
+        answerRest: "答えは {answer} です。",
+        themeToDark: "ダークモードに切り替え",
+        themeToLight: "ライトモードに切り替え",
+        progressAria: "問題 {current} / {total}",
+        typeAria: "種類: {kind}",
+        index: "{current} / {total}",
+        prompt_digit: "{name}のバンドが表す数字は何ですか？",
+        prompt_multiplier: "{name}のバンドが表す乗数は何ですか？",
+        prompt_tolerance: "{name}のバンドが表す許容差は何ですか？",
+        prompt_temp: "{name}のバンドが表す温度係数は何ですか？",
+        prompt_sequence: "左から読んだ色帯の組み合わせを選んでください。",
+        hint_digit: "この色帯1本が表す数字です。",
+        hint_multiplier: "乗数は抵抗値の桁を決めます。",
+        hint_tolerance: "許容差の帯は、通常いちばん右にあります。",
+        hint_temp: "6本帯では、最後の帯が温度係数です。",
+        hint_sequence: "左から2本が数字、3本目が乗数、最後が許容差です。",
+        kind_digit: "数字",
+        kind_multiplier: "乗数",
+        kind_tolerance: "許容差",
+        kind_temp: "温度係数",
+        kind_sequence: "色の並び",
+        colors: { black: "黒", brown: "茶", red: "赤", orange: "橙", yellow: "黄", green: "緑", blue: "青", violet: "紫", gray: "灰", white: "白", gold: "金", silver: "銀" }
+      }
+    };
+
+    const TEXT = {
+      brandName: "brand",
+      pageLead: "lead",
+      skipLink: "skip",
+      langLabel: "langLabel",
+      quizTitle: "quizTitle",
+      quizDesc: "quizDesc",
+      prevBtn: "prev",
+      nextBtn: "next",
+      retryBtn: "retry",
+      newBtn: "newSet",
+      scoreLabel: "score",
+      accLabel: "accuracy",
+      leftLabel: "remaining",
+      chartTitle: "chartTitle",
+      chartDesc: "chartDesc",
+      colColor: "colColor",
+      colDigit: "colDigit",
+      colMul: "colMul",
+      colTol: "colTol",
+      colTemp: "colTemp",
+      tip4: "tip4",
+      tip6: "tip6",
+      footerNote: "footer"
+    };
+
+    const state = {
+      lang: "ko",
+      theme: "light",
+      questions: [],
+      current: 0,
+      answered: new Map(),
+      correctCount: 0
+    };
+
+    const $ = (id) => document.getElementById(id);
+
+    function storageGet(key) {
+      try { return localStorage.getItem(key); } catch (err) { return null; }
+    }
+
+    function storageSet(key, value) {
+      try { localStorage.setItem(key, value); } catch (err) { /* private mode */ }
+    }
+
+    function t(key) {
+      const pack = I18N[state.lang] || I18N.ko;
+      if (Object.prototype.hasOwnProperty.call(pack, key)) return pack[key];
+      if (Object.prototype.hasOwnProperty.call(I18N.ko, key)) return I18N.ko[key];
+      return key;
+    }
+
+    function fill(str, vars) {
+      return String(str).replace(/\{(\w+)\}/g, (match, key) => (
+        vars && Object.prototype.hasOwnProperty.call(vars, key) ? String(vars[key]) : match
+      ));
+    }
+
+    function colorName(key) {
+      const colors = (I18N[state.lang] && I18N[state.lang].colors) || I18N.ko.colors;
+      return colors[key] || key;
+    }
+
+    function shuffle(list) {
+      const copy = [...list];
+      for (let i = copy.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
+    function otherValues(list, key, field) {
+      return shuffle(list.filter((item) => item.key !== key)).slice(0, 3).map((item) => item[field]);
+    }
+
+    function makeOptions(correct, distractors) {
+      return shuffle([correct, ...distractors]).map((value, index) => ({
+        key: "ABCD"[index],
+        value
+      }));
+    }
+
+    function sequenceOptions(answer) {
+      const used = new Set([answer]);
+      const distractors = [];
+      let guard = 0;
+      while (distractors.length < 3 && guard < 80) {
+        guard += 1;
+        const id = [
+          digitBands[Math.floor(Math.random() * digitBands.length)].key,
+          digitBands[Math.floor(Math.random() * digitBands.length)].key,
+          multiplierBands[Math.floor(Math.random() * multiplierBands.length)].key,
+          toleranceBands[Math.floor(Math.random() * toleranceBands.length)].key
+        ].join("|");
+        if (used.has(id)) continue;
+        used.add(id);
+        distractors.push(id);
+      }
+      return makeOptions(answer, distractors);
+    }
+
+    function buildQuestions() {
+      const questions = [];
+
+      while (questions.length < 25) {
+        const band = digitBands[questions.length % digitBands.length];
+        questions.push({
+          kind: "digit",
+          bandKey: band.key,
+          bands: [band.key],
+          answer: band.digit,
+          options: makeOptions(band.digit, otherValues(digitBands, band.key, "digit"))
+        });
+      }
+
+      while (questions.length < 50) {
+        const band = multiplierBands[(questions.length * 3) % multiplierBands.length];
+        questions.push({
+          kind: "multiplier",
+          bandKey: band.key,
+          bands: [band.key],
+          answer: band.multiplierText,
+          options: makeOptions(band.multiplierText, otherValues(multiplierBands, band.key, "multiplierText"))
+        });
+      }
+
+      while (questions.length < 70) {
+        const band = toleranceBands[(questions.length * 5) % toleranceBands.length];
+        questions.push({
+          kind: "tolerance",
+          bandKey: band.key,
+          bands: [digitBands[1].key, digitBands[2].key, multiplierBands[3].key, band.key],
+          answer: band.tolerance,
+          options: makeOptions(band.tolerance, otherValues(toleranceBands, band.key, "tolerance"))
+        });
+      }
+
+      while (questions.length < 85) {
+        const band = tempBands[(questions.length * 7) % tempBands.length];
+        questions.push({
+          kind: "temp",
+          bandKey: band.key,
+          bands: [
+            digitBands[1].key,
+            digitBands[0].key,
+            digitBands[2].key,
+            multiplierBands[2].key,
+            toleranceBands[0].key,
+            band.key
+          ],
+          answer: band.tempCoeff,
+          options: makeOptions(band.tempCoeff, otherValues(tempBands, band.key, "tempCoeff"))
+        });
+      }
+
+      while (questions.length < 100) {
+        const i = questions.length;
+        const d1 = digitBands[(i + 1) % digitBands.length];
+        const d2 = digitBands[(i + 3) % digitBands.length];
+        const mul = multiplierBands[(i + 5) % multiplierBands.length];
+        const tol = toleranceBands[(i + 2) % toleranceBands.length];
+        const answer = [d1.key, d2.key, mul.key, tol.key].join("|");
+        questions.push({
+          kind: "sequence",
+          bands: [d1.key, d2.key, mul.key, tol.key],
+          answer,
+          options: sequenceOptions(answer)
+        });
+      }
+
+      return shuffle(questions).map((question, index) => ({ ...question, id: index + 1 }));
+    }
+
+    function bandLayout(count) {
+      const usableLeft = 116;
+      const usableWidth = 208;
+      const width = count >= 6 ? 14 : count === 1 ? 18 : 16;
+      const pitch = count <= 1 ? 0 : count >= 6 ? 26 : 40;
+      const total = width + pitch * (count - 1);
+      return { width, pitch, start: usableLeft + (usableWidth - total) / 2 };
+    }
+
+    function svgEl(name, attrs) {
+      const el = document.createElementNS("http://www.w3.org/2000/svg", name);
+      Object.entries(attrs).forEach(([key, value]) => el.setAttribute(key, String(value)));
+      return el;
+    }
+
+    function renderResistor(keys) {
+      const bands = keys.map((key) => resistorData.find((item) => item.key === key));
+      const layout = bandLayout(bands.length);
+      const svg = svgEl("svg", { viewBox: "0 20 440 104", role: "img", class: "resistor-svg" });
+      svg.setAttribute("aria-label", bands.map((band) => colorName(band.key)).join(", "));
+      svg.append(
+        svgEl("line", { x1: 16, y1: 70, x2: 86, y2: 70, stroke: "#8d96a3", "stroke-width": 6, "stroke-linecap": "round" }),
+        svgEl("line", { x1: 354, y1: 70, x2: 424, y2: 70, stroke: "#8d96a3", "stroke-width": 6, "stroke-linecap": "round" }),
+        svgEl("rect", { x: 78, y: 28, width: 284, height: 84, rx: 42, fill: "#e4d0a1", stroke: "#c6b184", "stroke-width": 2 })
+      );
+      bands.forEach((band, index) => {
+        svg.append(svgEl("rect", {
+          x: layout.start + index * layout.pitch,
+          y: 36,
+          width: layout.width,
+          height: 68,
+          rx: 2,
+          fill: band.css,
+          stroke: "rgba(0,0,0,0.28)",
+          "stroke-width": 1
+        }));
+      });
+      const wrap = $("resistorWrap");
+      wrap.replaceChildren(svg);
+    }
+
+    function displayValue(question, value) {
+      if (question.kind !== "sequence") return value;
+      return value.split("|").map(colorName).join(" · ");
+    }
+
+    function promptFor(question) {
+      if (question.kind === "sequence") return t("prompt_sequence");
+      return fill(t("prompt_" + question.kind), { name: colorName(question.bandKey) });
+    }
+
+    function buildColorTable() {
+      const body = $("colorTableBody");
+      body.replaceChildren();
+      resistorData.forEach((item) => {
+        const tr = document.createElement("tr");
+        const colorCell = document.createElement("td");
+        const row = document.createElement("span");
+        row.className = "swatch-row";
+        const swatch = document.createElement("span");
+        swatch.className = "swatch";
+        swatch.style.background = item.css;
+        const name = document.createElement("span");
+        name.textContent = colorName(item.key);
+        row.append(swatch, name);
+        colorCell.append(row);
+        tr.append(colorCell);
+        [item.digit, item.multiplierText, item.tolerance, item.tempCoeff].forEach((value) => {
+          const td = document.createElement("td");
+          td.textContent = value || "—";
+          tr.append(td);
+        });
+        body.append(tr);
+      });
+    }
+
+    function renderFeedback(question) {
+      const box = $("feedback");
+      const saved = state.answered.get(question.id);
+      box.className = "feedback";
+      box.replaceChildren();
+      if (!saved) {
+        box.textContent = t("idle");
+        return;
+      }
+      box.classList.add(saved.correct ? "is-ok" : "is-bad");
+      const mark = document.createElement("strong");
+      mark.textContent = t(saved.correct ? "correct" : "wrong");
+      const rest = document.createElement("span");
+      rest.className = "rest";
+      rest.textContent = fill(t("answerRest"), { answer: displayValue(question, question.answer) });
+      box.append(mark, rest);
+    }
+
+    function renderOptions(question) {
+      const saved = state.answered.get(question.id);
+      const box = $("options");
+      box.replaceChildren();
+      question.options.forEach((opt) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "option";
+        if (saved) {
+          button.disabled = true;
+          if (opt.value === question.answer) button.classList.add("correct");
+          else if (opt.value === saved.selected) button.classList.add("wrong");
+        }
+        const key = document.createElement("span");
+        key.className = "key";
+        key.textContent = opt.key;
+        const label = document.createElement("span");
+        label.className = "label";
+        label.textContent = displayValue(question, opt.value);
+        button.append(key, label);
+        button.addEventListener("click", () => submitAnswer(opt.value));
+        box.append(button);
+      });
+    }
+
+    function updateSummary() {
+      const answered = state.answered.size;
+      const total = state.questions.length;
+      $("scoreNow").textContent = state.correctCount + " / " + answered;
+      $("accuracyNow").textContent = answered ? Math.round((state.correctCount / answered) * 100) + "%" : "0%";
+      $("remainingNow").textContent = String(total - answered);
+      $("prevBtn").disabled = state.current === 0;
+      $("nextBtn").disabled = state.current >= total - 1;
+      const done = $("doneNote");
+      const finished = total > 0 && answered === total;
+      done.hidden = !finished;
+      if (finished) done.textContent = t("done");
+    }
+
+    function renderQuestion() {
+      const question = state.questions[state.current];
+      if (!question) return;
+      const kind = t("kind_" + question.kind);
+      $("questionIndex").textContent = fill(t("index"), {
+        current: state.current + 1,
+        total: state.questions.length
+      });
+      $("questionType").textContent = kind;
+      $("questionType").setAttribute("aria-label", fill(t("typeAria"), { kind }));
+      $("questionPrompt").textContent = promptFor(question);
+      $("questionHint").textContent = t("hint_" + question.kind);
+      $("progressBar").style.width = ((state.current + 1) / state.questions.length) * 100 + "%";
+      const progress = $("progress");
+      progress.setAttribute("aria-valuenow", String(state.current + 1));
+      progress.setAttribute("aria-valuemax", String(state.questions.length));
+      progress.setAttribute("aria-label", fill(t("progressAria"), {
+        current: state.current + 1,
+        total: state.questions.length
+      }));
+      renderResistor(question.bands);
+      renderOptions(question);
+      renderFeedback(question);
+      updateSummary();
+    }
+
+    function submitAnswer(selected) {
+      const question = state.questions[state.current];
+      if (!question || state.answered.has(question.id)) return;
+      const correct = selected === question.answer;
+      state.answered.set(question.id, { selected, correct });
+      if (correct) state.correctCount += 1;
+      renderQuestion();
+    }
+
+    function goTo(index) {
+      state.current = Math.max(0, Math.min(state.questions.length - 1, index));
+      renderQuestion();
+    }
+
+    function startOver() {
+      state.current = 0;
+      state.answered = new Map();
+      state.correctCount = 0;
+      renderQuestion();
+    }
+
+    function newSet() {
+      state.questions = buildQuestions();
+      startOver();
+    }
+
+    function applyTheme(theme, persist) {
+      if (theme !== "light" && theme !== "dark") theme = "light";
+      state.theme = theme;
+      document.documentElement.setAttribute("data-theme", theme);
+      const meta = $("themeColor");
+      if (meta) meta.setAttribute("content", theme === "dark" ? "#0e1116" : "#f5f6f8");
+      $("themeBtn").setAttribute("aria-label", t(theme === "dark" ? "themeToLight" : "themeToDark"));
+      if (persist) storageSet("resistor-theme", theme);
+    }
+
+    function applyLanguage(lang, persist) {
+      if (!I18N[lang]) lang = "ko";
+      state.lang = lang;
+      document.documentElement.lang = lang === "zh" ? "zh-Hans" : lang;
+      document.title = t("brand");
+      const meta = $("metaDesc");
+      if (meta) meta.setAttribute("content", t("description"));
+      const link = $("font-link");
+      if (link && boot.fonts[lang]) {
+        const href = "https://fonts.googleapis.com/css2?" + boot.fonts[lang] + "&display=swap";
+        if (link.getAttribute("href") !== href) link.setAttribute("href", href);
+      }
+      Object.entries(TEXT).forEach(([id, key]) => {
+        const node = $(id);
+        if (node) node.textContent = t(key);
+      });
+      $("langSelect").value = lang;
+      $("newBtn").title = t("newHelp");
+      $("retryBtn").title = t("retryHelp");
+      const tempHead = $("colTemp");
+      if (t("colTempFull") !== t("colTemp")) tempHead.title = t("colTempFull");
+      else tempHead.removeAttribute("title");
+      $("themeBtn").setAttribute("aria-label", t(state.theme === "dark" ? "themeToLight" : "themeToDark"));
+      if (persist) storageSet("resistor-lang", lang);
+      buildColorTable();
+      if (state.questions.length) renderQuestion();
+    }
+
+    function bindStatic() {
+      $("langSelect").addEventListener("change", (event) => applyLanguage(event.target.value, true));
+      $("themeBtn").addEventListener("click", () => {
+        applyTheme(state.theme === "dark" ? "light" : "dark", true);
+      });
+      $("prevBtn").addEventListener("click", () => goTo(state.current - 1));
+      $("nextBtn").addEventListener("click", () => goTo(state.current + 1));
+      $("retryBtn").addEventListener("click", startOver);
+      $("newBtn").addEventListener("click", newSet);
+    }
+
+    function init() {
+      state.lang = boot.lang;
+      state.theme = boot.theme;
+      bindStatic();
+      applyLanguage(boot.lang, false);
+      applyTheme(boot.theme, false);
+      newSet();
+      if (!storageGet("resistor-theme")) {
+        window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (event) => {
+          if (!storageGet("resistor-theme")) applyTheme(event.matches ? "dark" : "light", false);
+        });
+      }
+    }
+
+    try {
+      init();
+    } catch (err) {
+      console.error(err);
+      const note = document.createElement("p");
+      note.className = "noscript";
+      note.textContent = "페이지를 불러오지 못했습니다. Failed to load this page.";
+      document.body.prepend(note);
+    } finally {
+      document.documentElement.classList.add("is-ready");
+    }
+  </script>
+</body>
+</html>
