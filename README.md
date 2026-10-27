@@ -2,7 +2,7 @@
 
 [한국어](#한국어) · [English](#english)
 
-파일 · File: [`register color study.html`](register%20color%20study.html)
+싸이트 · Site: [`https://n3skafe.github.io/register/`](https://n3skafe.github.io/register/)
 
 ## 한국어
 
